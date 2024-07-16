@@ -1,0 +1,7 @@
+{
+  "name": "imagenApi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
