@@ -1,3 +1,4 @@
+import { ImagenService } from './../servicios/imagen.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,6 +8,27 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  imagen:any;
+  constructor(private imageService:ImagenService) {}
 
+  onClick(){
+
+  }
+
+  storeImagen(nombre:any){
+    this.imageService.saveImagen(nombre.value, this.imagen).subscribe({
+      next:(data:any) =>{
+        debugger
+        console.log(data);
+      },
+      error:(error:any) =>{
+        debugger
+          console.error(error);
+      }
+      })
+    }
+
+    obtenerImagen(dato:any){
+      this.imagen=dato.target.files[0];
+  }
 }
